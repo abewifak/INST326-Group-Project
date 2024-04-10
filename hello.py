@@ -1,6 +1,0 @@
-print("hello")
-print("ZIJIN")
-print("Madina")
-print("Ibrahim")
-print("Marcelo")
-print("goodbye")
