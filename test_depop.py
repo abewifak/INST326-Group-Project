@@ -15,7 +15,7 @@ class Test_depop (unittest.TestCase):
         url = d.generate_url('womens')
         self.assertEqual (url , 'https://www.depop.com/category/womens/')
 
-    def test_filter_data_size1(self):
+    def test_filter_data_size(self):
         """Function to test the filtering function for the size"""
         sample_products = [
             {'link': 'depop.com/mens', 'price': 20.0, 'size': 'L'},
@@ -30,9 +30,9 @@ class Test_depop (unittest.TestCase):
         self.assertEqual (len(filtered) , 1)
 
         filtered = d.filter_data_size(sample_products, 'XXL')
-        self.assertEqual (len(filtered) , 0   ) 
+        self.assertEqual (len(filtered) , 0) 
 
-    def test_filter_data_size2(self):
+    def test_filter_data_price(self):
         """Function to test the filtering function for the price"""
         sample_products = [
             {'link': 'depop.com/mens', 'price': 20.0, 'size': 'L'},
