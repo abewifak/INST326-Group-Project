@@ -2,9 +2,6 @@ import pytest
 import depop as d
 import unittest
 
-from unittest.mock import patch, MagicMock
-from selenium.webdriver import Chrome, ChromeOptions
-
 class Test_depop (unittest.TestCase):
     
 
