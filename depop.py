@@ -22,7 +22,7 @@ class DepopScraper:
         self.price = price
         self.size = size
 
-    def page_source(self):
+    def get_page_source(self):
         """ Function to get page source
         
         Returns:
