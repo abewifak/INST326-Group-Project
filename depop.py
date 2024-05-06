@@ -8,6 +8,7 @@ from selenium.webdriver import Chrome #used for accessing the content from a jav
 from selenium.webdriver import ChromeOptions #used for headless access
 from argparse import ArgumentParser #used to run the script with a command line
 from datetime import datetime #imports the date and time libraries for the txt
+import sys
 
 class DepopScraper:
     """Class that represents a Depop Scraper
@@ -226,7 +227,7 @@ def write_file(products):
             f.write(f"Price: ${p['price']} \n")
             f.write(f"Size: {p['size']} \n")
 
-def parse_args():
+def parse_args(arglist):
     """ Function to run scripts with command line
 
     Returns:
@@ -237,12 +238,12 @@ def parse_args():
     parser.add_argument('price', type=float, help='Enter the maximum price for items')
     parser.add_argument('--size', type=str, help='Enter your size (e.g. S, M, L, XL)')
 
-    return parser.parse_args()
+    return parser.parse_args(arglist)
 
 def main():
     """Main function to scrape Depop listings based on user inputs.
     """
-    args = parse_args()
+    args = parse_args(sys.argv[1:])
 
     category = args.category
     price = args.price
