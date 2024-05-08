@@ -2,6 +2,8 @@
 Application to scrape data from depop and filter prices.
 Team members: Ibrahim Wifak, Zijin Wang, Marcelo Soriano, Madina Diane
 Date: 4_9_2024
+
+Instructions: Enter Category (mens or womens), MAX price, and size (optional)
 """
 from bs4 import BeautifulSoup #used for web scraping
 from selenium.webdriver import Chrome #used for accessing the content from a javascript rendered site
@@ -173,9 +175,9 @@ def output_data(products):
     """Function that prints the items after they were filtered
     
     Parameters:
-        products (dict): the filtered information
+        products (list): the filtered information
     """
-    #For product in products we print the entire dictionary of items found
+    #For product in products we print the entire list of items found
     for p in products:
         print(f"Link: {p['link']}")
         print(f"Price: ${p['price']}")
@@ -214,14 +216,14 @@ def write_file(products):
     """Function to write the listings' information to a file
 
     Parameters:
-        products (dict): the filtered information
+        products (list): the filtered information
     """
     #Opens/Creates a depop.txt file using the append mode
     with open('depop.txt', 'a') as f:
         #Uses the datetime library to get current time and set the format as instructed
         date = datetime.now().strftime('%d-%m-%Y %H:%M:%S')
         f.write('Date: ' + date + ' \n')
-        #For all products in the products dictionary
+        #For all products in the products list
         for p in products:
             f.write(f"Link: {p['link']} \n")
             f.write(f"Price: ${p['price']} \n")
@@ -231,7 +233,7 @@ def parse_args(arglist):
     """ Function to run scripts with command line
 
     Returns:
-        parser.parse_args(): parsed arguments
+        parser.parse_args(arglist): parsed arguments
     """
     parser = ArgumentParser(description='Scrape Depop listings based on category(mens or womens), price, and size.')
     parser.add_argument('category', type=str, help='Enter "mens" or "womens" as a category')

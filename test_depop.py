@@ -3,8 +3,7 @@ import depop as d
 import unittest
 
 class Test_depop (unittest.TestCase):
-    
-
+    """Class that represents a tester for an application"""
     def test_generate_url_mens(self):
         """Function to test if mens generates the appropriate url"""
         url = d.generate_url('mens')
