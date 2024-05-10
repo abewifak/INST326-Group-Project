@@ -4,18 +4,27 @@ import unittest
 
 class Test_depop (unittest.TestCase):
     """Class that represents a tester for an application"""
+    """ This class contains various test methods to ensure 
+    the correct functionality of the depop scraper application"""
+    
     def test_generate_url_mens(self):
         """Function to test if mens generates the appropriate url"""
+        """ This test checks if the 'generate_url' function returns the correct url
+        for the 'mens' category on the Depop website"""
         url = d.generate_url('mens')
         self.assertEqual (url , 'https://www.depop.com/category/mens/')
 
     def test_generate_url_womens(self):
         """Function to test if womens generates the appropriate url"""
+        """ This test checks if the 'generate_url' function returns the correct url
+        for the 'womens' category on the Depop website"""
         url = d.generate_url('womens')
         self.assertEqual (url , 'https://www.depop.com/category/womens/')
 
     def test_filter_data_size(self):
         """Function to test the filtering function for the size"""
+        """ This test checks if the 'filter_data_size' function correctly filters 
+        the product data based on the specified size"""
         sample_products = [
             {'link': 'depop.com/mens', 'price': 20.0, 'size': 'L'},
             {'link': 'depop.com/womens', 'price': 30.0, 'size': 'L'},
@@ -33,6 +42,8 @@ class Test_depop (unittest.TestCase):
 
     def test_filter_data_price(self):
         """Function to test the filtering function for the price"""
+        """ This test checks if the 'filter_data_price' function correctly filters 
+        the product data based on the specified price"""
         sample_products = [
             {'link': 'depop.com/mens', 'price': 20.0, 'size': 'L'},
             {'link': 'depop.com/womens', 'price': 30.0, 'size': 'M'},
@@ -48,6 +59,8 @@ class Test_depop (unittest.TestCase):
         
     def test_get_data(self):
         """Checks that get_data extracts the correct data from HTML."""
+        """ This test checks if the 'get_data' function correctly extracts 
+        product details (link, price and size) from the provided HTML content"""
         # Mock HTML with product details.
         html_content = '''
         <html>
